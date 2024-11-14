@@ -8,7 +8,7 @@ public class SortArray {
         merge(array, buffer, 0, array.length - 1);
     }
 
-    private static void merge(int[] array, int[] buffer, Integer beginIndex, Integer endIndex) {
+    private static void merge(int[] array, int[] buffer, int beginIndex, int endIndex) {
         if(beginIndex < endIndex) {
             int indexMiddle = (beginIndex + endIndex) / 2;
 
