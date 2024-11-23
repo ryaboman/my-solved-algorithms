@@ -5,9 +5,10 @@ import java.util.Arrays;
 public class MergeArray
 {
     public static void main(String[] args) {
-        int[] arr = mergeArrays(new int[]{1, 3}, new int[]{0, 1, 2, 5, 6});
+        String[] arr = new String[]{"1029207", "Simple string", "Java"};//(Integer[]) mergeArrays(new int[]{1, 3}, new int[]{0, 1, 2, 5, 6});
         System.out.println(Arrays.toString(arr));
-        SortArray.merge(arr);
+        Expression<String> func = (a, b)-> a.length() > b.length();
+        SortArray.merge(arr, func);
         System.out.println(Arrays.toString(arr));
     }
 
