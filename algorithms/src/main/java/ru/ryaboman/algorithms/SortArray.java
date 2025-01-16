@@ -2,22 +2,29 @@ package ru.ryaboman.algorithms;
 
 import java.util.Arrays;
 
+
 public class SortArray {
-    public static void merge(int[] array) {
-        int[] buffer = new int[array.length];
-        merge(array, buffer, 0, array.length - 1);
+    public  static <TYPE> void merge(TYPE[] array) {
+        TYPE[] buffer = (TYPE[]) new Object[array.length];
+        Expression<Integer> func = (a, b)-> a > b;
+        merge(array, buffer, 0, array.length - 1, func );
     }
 
-    private static void merge(int[] array, int[] buffer, int beginIndex, int endIndex) {
+    public static <TYPE> void merge(TYPE[] array, Expression fun) {
+        TYPE[] buffer = (TYPE[]) new Object[array.length];
+        merge(array, buffer, 0, array.length - 1, fun);
+    }
+
+    private static <TYPE> void merge(TYPE[] array, TYPE[] buffer, Integer beginIndex, Integer endIndex, Expression fun) {
         if(beginIndex < endIndex) {
             int indexMiddle = (beginIndex + endIndex) / 2;
 
-            merge(array, buffer, beginIndex, indexMiddle);
-            merge(array, buffer, indexMiddle+1, endIndex);
+            merge(array, buffer, beginIndex, indexMiddle, fun);
+            merge(array, buffer, indexMiddle+1, endIndex, fun);
 
             //Здесь мы заранее знаем, что первый подмассив равен или длинее второго
             for(int i = beginIndex, bi = beginIndex, ei = indexMiddle+1; i <= endIndex; i++) {
-                if(bi > indexMiddle || (ei <= endIndex && array[bi] > array[ei])) {
+                if(bi > indexMiddle || ( ei <= endIndex && fun.isMore(array[bi], array[ei]) )) {
                     buffer[i] = array[ei];
                     ei++;
                 }
@@ -32,4 +39,8 @@ public class SortArray {
 
 
     }
+}
+
+interface Expression<T>{
+    boolean isMore(T a, T b);
 }
