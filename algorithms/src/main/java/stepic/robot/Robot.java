@@ -1,4 +1,4 @@
-package stepic;
+package stepic.robot;
 
 public class Robot {
 
