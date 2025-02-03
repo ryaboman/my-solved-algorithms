@@ -1,4 +1,4 @@
-package test_yandex;
+package test_yandex.taskC;
 
 import java.util.*;
 

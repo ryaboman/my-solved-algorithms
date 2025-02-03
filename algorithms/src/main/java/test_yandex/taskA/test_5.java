@@ -1,4 +1,4 @@
-package test_yandex;
+package test_yandex.taskA;
 
 import java.io.File;
 import java.io.PrintWriter;
