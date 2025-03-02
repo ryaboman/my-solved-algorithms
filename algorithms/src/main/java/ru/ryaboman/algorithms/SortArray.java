@@ -1,7 +1,5 @@
 package ru.ryaboman.algorithms;
 
-import java.util.Arrays;
-
 
 public class SortArray {
     public  static <TYPE> void merge(TYPE[] array) {
@@ -41,6 +39,3 @@ public class SortArray {
     }
 }
 
-interface Expression<T>{
-    boolean isMore(T a, T b);
-}
