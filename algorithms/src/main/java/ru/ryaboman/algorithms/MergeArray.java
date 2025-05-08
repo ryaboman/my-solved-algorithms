@@ -1,6 +1,7 @@
 package ru.ryaboman.algorithms;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class MergeArray
 {
@@ -10,6 +11,11 @@ public class MergeArray
         Expression<String> func = (a, b)-> a.length() > b.length();
         SortArray.merge(arr, func);
         System.out.println(Arrays.toString(arr));
+
+        String[] arr1 = new String[]{"1029asdf207", "Simple-str58555ing", "Java"};
+        List<String> list = Arrays.asList(arr1);
+        SortArray.insertionSort(list, (a, b)-> { if (a.length() > b.length()) return 1; return -1;});
+        System.out.println(list);
     }
 
     public static int[] mergeArrays(int[] a1, int[] a2) {

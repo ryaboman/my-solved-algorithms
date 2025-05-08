@@ -1,6 +1,9 @@
 package ru.ryaboman.algorithms;
 
 
+import java.util.Comparator;
+import java.util.List;
+
 public class SortArray {
     public  static <TYPE> void merge(TYPE[] array) {
         TYPE[] buffer = (TYPE[]) new Object[array.length];
@@ -36,6 +39,19 @@ public class SortArray {
         }
 
 
+    }
+
+    public static <TYPE> void insertionSort(List<TYPE> elements, Comparator<TYPE> comparator) {
+        for(int i = 1; i < elements.size(); i++) {
+            for(int j = i-1; j >= 0; j--) {
+                if(comparator.compare(elements.get(j), elements.get(i)) > 0){
+                    if(i != j) {
+                        elements.add(j, elements.remove(i));
+                    }
+                    break;
+                }
+            }
+        }
     }
 }
 
