@@ -20,7 +20,14 @@ public class Task10 {
                 new User(3, "Charlie")
         );
 
-        Map<Integer, String> map = users.stream().collect(Collectors.groupingBy(User::id, Collectors.mapping(User::name, Collectors.joining(", "))));
+        Map<Integer, List<String>> map = users.stream()
+                .collect(
+                        Collectors.groupingBy(
+                                User::id,
+                                Collectors.mapping(User::name, Collectors.toList())
+                        )
+                );
+
         System.out.println(map);
     }
 }

@@ -18,7 +18,12 @@ public class Task12 {
                 new Person("Charlie", List.of("+123123123"))
         );
 
-        long count = people.stream().flatMap(p -> p.phoneNumbers.stream()).filter(s -> s.startsWith("+7")).distinct().count();
+        long count = people.stream()
+                .flatMap(p -> p.phoneNumbers.stream())
+                .filter(s -> s.startsWith("+7"))
+                .distinct()
+                .count();
+
         System.out.println(count);
     }
 }

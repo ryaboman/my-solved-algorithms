@@ -18,7 +18,12 @@ public class Task13 {
                 new Product("Eraser", 0.99)
         );
 
-        List<Product> productsAfterStream = products.stream().sorted(Comparator.comparing(Product::price).reversed().thenComparing(Product::name)).toList();
+        List<Product> productsAfterStream = products.stream()
+                .sorted(
+                        Comparator.comparing(Product::price)
+                        .reversed()
+                        .thenComparing(Product::name))
+                .toList();
         System.out.println(productsAfterStream);
     }
 }

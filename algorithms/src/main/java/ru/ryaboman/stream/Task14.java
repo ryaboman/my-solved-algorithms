@@ -8,7 +8,10 @@ public class Task14 {
     public static void main(String[] args) {
         List<Integer> numbers = List.of(1, 2, 3, 4, 5);
 
-        long multimp = numbers.stream().filter(x -> x > 2).reduce(1, (x, y) -> x*y);
+        long multimp = numbers.stream()
+                .filter(x -> x > 2)
+                .reduce(1, (x, y) -> x*y);
+
         System.out.println(multimp);
     }
 

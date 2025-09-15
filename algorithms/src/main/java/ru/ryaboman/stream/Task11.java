@@ -19,6 +19,13 @@ public class Task11 {
         );
 
 
-        //orders.stream().filter(x -> x.amount > 100).collect(Collectors.groupingBy(Order::customerId, Collectors.summing(Order::amount)));
+        orders.stream()
+                .filter(x -> x.amount > 100)
+                .collect(
+                        Collectors.groupingBy(
+                                Order::customerId,
+                                Collectors.summingDouble(Order::amount)
+                        )
+                );
     }
 }
