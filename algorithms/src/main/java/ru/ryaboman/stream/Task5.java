@@ -7,7 +7,8 @@ public class Task5 {
     //Объединить строки в одну (через запятую)
     public static void main(String[] args) {
         List<String> words = List.of("a", "b", "c");
-        String result = words.stream().collect(Collectors.joining(", "));
+        //String result = String.join(", ", words);
+        String result = words.stream().collect(Collectors.joining(", ", "[", "]"));
         System.out.println(result);
     }
 }
