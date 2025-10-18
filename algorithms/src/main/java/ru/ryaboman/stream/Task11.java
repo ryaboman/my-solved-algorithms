@@ -1,6 +1,7 @@
 package ru.ryaboman.stream;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Task11 {
@@ -19,13 +20,14 @@ public class Task11 {
         );
 
 
-        orders.stream()
-                .filter(x -> x.amount > 100)
+        Map<Integer, Double> result = orders.stream()
+                .filter(x -> x.amount() > 100)
                 .collect(
                         Collectors.groupingBy(
                                 Order::customerId,
                                 Collectors.summingDouble(Order::amount)
                         )
                 );
+        System.out.println(result);
     }
 }
